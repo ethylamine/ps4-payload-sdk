@@ -10,6 +10,7 @@ int (*scePadOpen)(int userID, int, int, void *);
 int (*scePadClose)(int handle);
 int (*scePadRead)(int handle, void *data, int count);
 int (*scePadReadState)(int handle, void *data);
+int (*scePadSetUserColor)(int appId, int userColor);
 
 void initPad(void) {
   if (libPad) {
@@ -23,6 +24,7 @@ void initPad(void) {
   RESOLVE(libPad, scePadClose);
   RESOLVE(libPad, scePadRead);
   RESOLVE(libPad, scePadReadState);
+  RESOLVE(libPad, scePadSetUserColor);
 
   scePadInit();
 }
